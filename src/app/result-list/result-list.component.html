@@ -1,0 +1,46 @@
+<div class="tw-flex tw-w-full tw-justify-center tw-mt-8">
+  <div class="tw-w-1/2">
+    <div class="tw-flex tw-justify-between">
+      <button class="raa-button raa-button-secondary min-width-14" (click)="felaktigClick()">Felaktig</button>
+      <button class="raa-button raa-button-secondary min-width-14" (click)="mestadelsfelaktigClick()">Mestadels
+        Felaktig</button>
+      <button class="raa-button raa-button-secondary min-width-14" (click)="avvikandeClick()">Avvikande</button>
+    </div>
+
+    <div class="tw-flex tw-justify-between tw-mt-2">
+      <button class="raa-button min-width-14" (click)="previousPageClick()" [disabled]="pageNumber === 1">Föregående
+        sida</button>
+      <div class="raa-text-container">
+        <h4 class="raa-h4 tw-justify-center">{{pageNumber}}</h4>
+      </div>
+      <button class="raa-button min-width-14" (click)="nextPageClick()" [disabled]="!items.length">Nästa sida</button>
+    </div>
+
+    <div class="tw-w-full tw-overflow-auto max-height-48 ">
+      <table mat-table [dataSource]="items" class="mat-elevation-z8 tw-w-full">
+        <ng-container matColumnDef="itemId">
+          <th mat-header-cell *matHeaderCellDef>id</th>
+          <td mat-cell *matCellDef="let element"> {{element.itemId}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="link">
+          <th mat-header-cell *matHeaderCellDef>länk</th>
+          <td mat-cell *matCellDef="let element"> <a class="raa-link" href={{element.link}} target="_blank">länk</a>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="byline">
+          <th mat-header-cell *matHeaderCellDef>byline</th>
+          <td mat-cell *matCellDef="let element"> {{element.byline}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="mediaLicense">
+          <th mat-header-cell *matHeaderCellDef>mediaLicense</th>
+          <td mat-cell *matCellDef="let element"> {{element.mediaLicense}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </div>

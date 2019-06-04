@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/raa-style/dist/scss/raa-tailwind.scss';
+@import '../node_modules/raa-style/dist/scss/raa-tailwind.button';
+@import '~@angular/material/theming';
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '../node_modules/raa-style/dist/css/raa-tailwind.typography.css';
+
+// Vi överrider fontsökvägen för raa-style så vi får rätt path till node_modules
+$raa-style-font-path: '~raa-style/dist';
+@import "~raa-style/dist/scss/icons";
+
